@@ -7,7 +7,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.dojodolilo.modelo.Turma;
+import com.dojodolilo.validacao.DataFinalPosteriorDataInicial;
 
+@DataFinalPosteriorDataInicial
 public class TurmaRequest {
 
 	@NotBlank @Size(max=50)
@@ -26,6 +28,14 @@ public class TurmaRequest {
 		this.dataFinal = dataFinal;
 	}
 
+	public LocalDate getDataInicio() {
+		return dataInicio;
+	}
+	
+	public LocalDate getDataFinal() {
+		return dataFinal;
+	}
+	
 	public Turma converter() {
 		return new Turma(nome, dataInicio, dataFinal);
 	}
